@@ -9,7 +9,8 @@ namespace Comalies
     interface IReportViewer
     {
         int UsedSize { get; set; }
+        //string Directory { get; set; }
         //============================
-        void Clean();
+        void Clean(IFileService fIleService, string dirToClean);
     }
 }

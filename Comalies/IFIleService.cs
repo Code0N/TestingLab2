@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Comalies
 {
-    interface IFIleService
+    interface IFileService
     {
         int RemoveTemporaryFiles(string dir);
     }
