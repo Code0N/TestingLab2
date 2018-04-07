@@ -11,6 +11,6 @@ namespace Comalies
         int UsedSize { get; set; }
         //string Directory { get; set; }
         //============================
-        void Clean(IFileService fIleService, string dirToClean);
+        void Clean();
     }
 }

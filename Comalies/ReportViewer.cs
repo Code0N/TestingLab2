@@ -9,13 +9,20 @@ namespace Comalies
     class ReportViewer: IReportViewer
     {
         public int UsedSize { get; set; }
+        private string DirToClean { get; set; }
         //public string Directory { get; set; }
         private IFileService FileService;
         //=============
-        public void Clean(IFileService fileService, string dirToClean)
+
+        public ReportViewer(IFileService fileService, string pathToDelete)
         {
-            FileService = fileService;
-            this.UsedSize = FileService.RemoveTemporaryFiles(dirToClean);
+            this.FileService = fileService;
+            this.DirToClean = pathToDelete;
+        }
+        
+        public void Clean()
+        {
+            this.UsedSize = FileService.RemoveTemporaryFiles(DirToClean);
         }
     }
 }
