@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+//using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,11 +19,22 @@ namespace Comalies
         {
             this.FileService = fileService;
             this.DirToClean = pathToDelete;
+            this.UsedSize = 0;
         }
         
         public void Clean()
         {
-            this.UsedSize = FileService.RemoveTemporaryFiles(DirToClean);
+            try
+            {
+                this.UsedSize = FileService.RemoveTemporaryFiles(DirToClean);
+            }
+            catch (Exception ex)
+            {
+                this.UsedSize = 0;
+                System.Windows.Forms.MessageBox.Show("При обработке файлов вызвано исключение " + ex.Message + ", метод прекращает свою работу");
+                return;
+            }
+            
         }
     }
 }
