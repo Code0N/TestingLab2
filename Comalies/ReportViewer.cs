@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Comalies
 {
-    class ReportViewer: IReportViewer
+    public class ReportViewer: IReportViewer
     {
         public int UsedSize { get; set; }
         private string DirToClean { get; set; }

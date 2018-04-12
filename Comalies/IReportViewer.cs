@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Comalies
 {
-    interface IReportViewer
+    public interface IReportViewer
     {
         int UsedSize { get; set; }
         //string Directory { get; set; }

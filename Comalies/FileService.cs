@@ -7,7 +7,7 @@ using System.IO;
 
 namespace Comalies
 {
-    class FileService: IFileService
+    public class FileService: IFileService
     {
         public int RemoveTemporaryFiles(string dir)
         {
