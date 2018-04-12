@@ -30,7 +30,7 @@ namespace Comalies
             }
             catch (Exception ex)
             {
-                this.UsedSize = 0;
+                this.UsedSize = -1;
                 System.Windows.Forms.MessageBox.Show("При обработке файлов вызвано исключение " + ex.Message + ", метод прекращает свою работу");
                 return;
             }
