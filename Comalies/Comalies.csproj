@@ -74,6 +74,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportViewer.cs" />
+    <Compile Include="ReportViewer2.cs" />
     <Compile Include="StringFormatter.cs" />
     <Compile Include="TemporaryFileRepository.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

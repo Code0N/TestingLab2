@@ -10,9 +10,9 @@ namespace Comalies
     public class ReportViewer: IReportViewer
     {
         public int UsedSize { get; set; }
-        private string DirToClean { get; set; }
+        protected string DirToClean { get; set; }
         //public string Directory { get; set; }
-        private IFileService FileService;
+        protected IFileService FileService;
         //=============
 
         public ReportViewer(IFileService fileService, string pathToDelete)
@@ -22,7 +22,7 @@ namespace Comalies
             this.UsedSize = 0;
         }
         
-        public void Clean()
+        public virtual void Clean()
         {
             try
             {

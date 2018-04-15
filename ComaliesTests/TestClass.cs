@@ -31,9 +31,6 @@ namespace ComaliesTests
         [Test]
         public void TestFSStubException() //Зачем незнаю, мне снятся поезда...
         {
-            //IReportViewer reportViewer = new ReportViewer(new FakeStubFileServiceReturnSize(), "TestException");
-            ////reportViewer.Clean();
-            //Assert.Throws<FileNotFoundException>(() => reportViewer.Clean());
             IFileService fileService = new FakeStubFileServiceReturnSize();
             Assert.Throws<FileNotFoundException>(() => fileService.RemoveTemporaryFiles("TestException"));
         }
@@ -43,6 +40,22 @@ namespace ComaliesTests
         {
             IFileService fileService = new FileService();
             Assert.Throws<FileNotFoundException>(() => fileService.RemoveTemporaryFiles(@"C:\notExist\"));
+        }
+
+        [Test]
+        public void TestRVException()
+        {
+            IReportViewer reportViewer = new ReportViewer2(new FakeStubFileServiceReturnSize(), "TestException");
+            Assert.Throws<FileNotFoundException>(() => reportViewer.Clean());
+        }
+
+        [Test]
+        public void TestFileServiceMethodIsCalled() //Использование Mock'а
+        {
+            FakeMockFileService fileService = new FakeMockFileService();
+            IReportViewer reportViewer = new ReportViewer(fileService, "TestPath");
+            reportViewer.Clean();
+            Assert.AreEqual("TestPath", fileService.ReceivedPath);
         }
     }
 }
