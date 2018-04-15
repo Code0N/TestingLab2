@@ -21,7 +21,15 @@ namespace ComaliesTests
         }
 
         [Test]
-        public void TestFSStubException()
+        public void TestZeroFilesSize() //Тест, что при передаче несуществующего пути метод Clean() корректно завершает свою работу
+        { //Стаб возвращает эксепшн при pathToDelete == "TestException"
+            IReportViewer reportViewer = new ReportViewer(new FakeStubFileServiceReturnSize(), "TestException");
+            reportViewer.Clean();
+            Assert.AreEqual(0, reportViewer.UsedSize);
+        }
+
+        [Test]
+        public void TestFSStubException() //Зачем незнаю, мне снятся поезда...
         {
             //IReportViewer reportViewer = new ReportViewer(new FakeStubFileServiceReturnSize(), "TestException");
             ////reportViewer.Clean();
